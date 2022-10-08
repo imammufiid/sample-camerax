@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cameraPermissionFragment">
+
+    <fragment
+        android:id="@+id/cameraCaptureFragment"
+        android:name="com.mufiid.xcamerax.fragment.CameraCaptureFragment"
+        android:label="fragment_camera_capture"
+        tools:layout="@layout/fragment_camera_capture">
+        <action
+            android:id="@+id/action_cameraCaptureFragment_to_cameraPreviewFragment"
+            app:destination="@id/cameraPreviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraPreviewFragment"
+        android:name="com.mufiid.xcamerax.fragment.CameraPreviewFragment"
+        android:label="fragment_camera_preview"
+        tools:layout="@layout/fragment_camera_preview">
+        <argument
+            android:name="uri"
+            app:argType="android.net.Uri" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraPermissionFragment"
+        android:name="com.mufiid.xcamerax.fragment.CameraPermissionFragment"
+        android:label="CameraPermissionFragment">
+        <action
+            android:id="@+id/action_cameraPermissionFragment_to_cameraCaptureFragment"
+            app:destination="@id/cameraCaptureFragment" />
+    </fragment>
+</navigation>
